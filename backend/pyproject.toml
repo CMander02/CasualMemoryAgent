@@ -1,30 +1,32 @@
 [project]
-name = "template-backend"
+name = "casual-memory-agent"
 version = "0.1.0"
-description = "FastAPI backend with Agentic AI capabilities"
+description = "FastAPI backend with Memory-augmented AI Agent"
 readme = "README.md"
-requires-python = ">=3.11"
+requires-python = ">=3.13"
 dependencies = [
-    "fastapi>=0.115.0",
-    "uvicorn[standard]>=0.32.0",
-    "pydantic>=2.10.0",
-    "pydantic-settings>=2.6.0",
-    "python-dotenv>=1.0.0",
-    "httpx>=0.28.0",
-    "anthropic>=0.40.0",
-    "sse-starlette>=2.2.0",
+    "fastapi",
+    "uvicorn[standard]",
+    "pydantic",
+    "pydantic-settings",
+    "python-dotenv",
+    "httpx",
+    "openai",
+    "sse-starlette",
+    "lancedb",
+    "aiosqlite",
 ]
 
 [project.optional-dependencies]
 dev = [
-    "pytest>=8.3.0",
-    "pytest-asyncio>=0.24.0",
-    "ruff>=0.8.0",
+    "pytest",
+    "pytest-asyncio",
+    "ruff",
 ]
 
 [tool.ruff]
 line-length = 100
-target-version = "py311"
+target-version = "py313"
 
 [tool.ruff.lint]
 select = ["E", "F", "I", "W"]
