@@ -1,0 +1,6 @@
+$3fe9b901-d3b1-48c8-9190-17cc24fa326b²´id ÿÿÿÿÿÿÿÿÿ*string08type ÿÿÿÿÿÿÿÿÿ*string08"content ÿÿÿÿÿÿÿÿÿ*string08%
+created_at ÿÿÿÿÿÿÿÿÿ*string08%
+updated_at ÿÿÿÿÿÿÿÿÿ*string08(metadata_json ÿÿÿÿÿÿÿÿÿ*string08!status ÿÿÿÿÿÿÿÿÿ*string08#due_date ÿÿÿÿÿÿÿÿÿ*string08"priority ÿÿÿÿÿÿÿÿÿ*int6408 title	 ÿÿÿÿÿÿÿÿÿ*string08$	tags_json
+ ÿÿÿÿÿÿÿÿÿ*string08!source ÿÿÿÿÿÿÿÿÿ*string085vector ÿÿÿÿÿÿÿÿÿ*fixed_size_list:float:102408"!
+lance.auto_cleanup.interval20"'
+lance.auto_cleanup.older_than14days

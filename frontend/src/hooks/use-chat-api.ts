@@ -15,6 +15,7 @@ export function useChatApi(options: UseChatApiOptions = {}) {
   const [messages, setMessages] = useState<Message[]>([])
   const [input, setInput] = useState("")
   const [isLoading, setIsLoading] = useState(false)
+  const [useMemory, setUseMemory] = useState(false)
 
   const sendMessage = useCallback(
     async (content: string) => {
@@ -41,6 +42,8 @@ export function useChatApi(options: UseChatApiOptions = {}) {
               content: m.content,
             })),
             stream: true,
+            use_memory: useMemory,
+            memory_limit: 5,
           }),
         })
 
@@ -103,8 +106,29 @@ export function useChatApi(options: UseChatApiOptions = {}) {
         setIsLoading(false)
       }
     },
-    [api, messages]
+    [api, messages, useMemory]
   )
+
+  const saveToMemory = useCallback(
+    async (content: string, title: string = "", tags: string[] = []) => {
+      try {
+        const response = await fetch("/api/chat/save-to-memory", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ content, title, tags }),
+        })
+        return response.ok
+      } catch (error) {
+        console.error("Failed to save to memory:", error)
+        return false
+      }
+    },
+    []
+  )
+
+  const clearMessages = useCallback(() => {
+    setMessages([])
+  }, [])
 
   const handleSubmit = useCallback(
     (e: React.FormEvent) => {
@@ -125,9 +149,13 @@ export function useChatApi(options: UseChatApiOptions = {}) {
     messages,
     input,
     isLoading,
+    useMemory,
+    setUseMemory,
     setInput,
     handleInputChange,
     handleSubmit,
     sendMessage,
+    saveToMemory,
+    clearMessages,
   }
 }

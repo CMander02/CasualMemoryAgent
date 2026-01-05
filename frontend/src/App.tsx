@@ -1,14 +1,4 @@
-import { Chat } from "@/components/Chat"
-
-function App() {
-  return (
-    <main className="min-h-screen bg-background">
-      <div className="container mx-auto py-8">
-        <h1 className="text-3xl font-bold mb-8 text-center">AI Chat</h1>
-        <Chat />
-      </div>
-    </main>
-  )
+// This file is kept for compatibility but routing is handled in main.tsx
+export default function App() {
+  return null
 }
-
-export default App
